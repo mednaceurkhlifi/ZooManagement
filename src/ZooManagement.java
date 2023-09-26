@@ -41,18 +41,22 @@ public class ZooManagement {
 
         //Instantiating Animal Objects
         Animal lion = new Animal("lions", "simba", 10, true);
-        Animal giraffe = new Animal("whateverfamilygiraffesare", "gif", 12, true);
+        Animal giraffe = new Animal("GirFam", "gif", 12, true);
         Animal blobFish = new Animal("Fish", "blobby", 1, false);
-        Animal ant = new Animal("workersofworldunite", "antisysteme", 3, false);
+        Animal ant = new Animal("Colony", "antisysteme", 3, false);
         Animal horse = new Animal("Horsingaround", "BojackHorseman", 50, true);
 
         //Instantiating a Zoo
         Zoo myZoo = new Zoo("Zoo", "somewhere");
+
+        //Instantiating a different Zoo
         Zoo myVoodooZoo = new Zoo("VoodooZoo", "somewhere");
+
+        //Testing the displayZoo()
         myZoo.displayZoo();
 
         System.out.println(myZoo); // prints name of the object @ memory location of the object
-        //System.out.println(myZoo.toString()); //unnecessary (does the same thing as sout)
+        // System.out.println(myZoo.toString()); // unnecessary (does the same thing as sout)
         // we have to override the "toString" method to make the Sout to print the class attributes
 
         //Testing the addAnimal()
@@ -63,6 +67,8 @@ public class ZooManagement {
         System.out.println("Did I add the Ant? " + myZoo.addAnimal(ant));
         System.out.println("Did I add the Horse? " + myZoo.addAnimal(horse));
         System.out.println("Did I add the Horse? " + myVoodooZoo.addAnimal(horse));
+
+
         //Testing searchAnimal()
         System.out.println("\nlion location:" + myZoo.searchAnimal(lion));
 
@@ -85,10 +91,11 @@ public class ZooManagement {
         //The final result
         System.out.println(myZoo);
 
+        //Testing the isZooFull()
         boolean full = myZoo.isZooFull();
         System.out.println("\n" + full);
 
-
+        //Testing the CompareZoo()
         System.out.println(myZoo.CompareZoo(myZoo, myVoodooZoo));
     }
 }
