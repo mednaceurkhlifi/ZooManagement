@@ -39,21 +39,23 @@ public class ZooManagement {
 
         // PART III
 
+        //Instantiating Animal Objects
         Animal lion = new Animal("lions", "simba", 10, true);
         Animal giraffe = new Animal("whateverfamilygiraffesare", "gif", 12, true);
         Animal blobFish = new Animal("Fish", "blobby", 1, false);
         Animal ant = new Animal("workersofworldunite", "antisysteme", 3, false);
         Animal horse = new Animal("Horsingaround", "BojackHorseman", 50, true);
 
+        //Instantiating a Zoo
         Zoo myZoo = new Zoo("Zoo", "somewhere", 25);
 
         myZoo.displayZoo();
 
         System.out.println(myZoo); // prints name of the object @ memory location of the object
         System.out.println(myZoo.toString()); // same thing
-        // we have to override the "toString" method to make the Sout print the class attributes
+        // we have to override the "toString" method to make the Sout to print the class attributes
 
-
+        //Testing the addAnimal()
         System.out.println("Did I add the Blob? " + myZoo.addAnimal(blobFish));
         System.out.println("Did I add the Blob? " + myZoo.addAnimal(blobFish));
         System.out.println("Did I add the Lion? " + myZoo.addAnimal(lion));
@@ -61,28 +63,26 @@ public class ZooManagement {
         System.out.println("Did I add the Ant? " + myZoo.addAnimal(ant));
         System.out.println("Did I add the Horse? " + myZoo.addAnimal(horse));
 
+        //Testing searchAnimal()
         System.out.println("\nlion location:" + myZoo.searchAnimal(lion));
 
-        System.out.println("\n\n" + myZoo.count);
+        System.out.println("\nblob-fish location:" + myZoo.searchAnimal(blobFish));
+
+        //Testing toString()
+        System.out.println(myZoo);
 
 
-        System.out.println("\nblobfish location:" + myZoo.searchAnimal(blobFish));
-
-
-        //myZoo.showAnimals();
-
-
+        //Testing removeAnimal()
         boolean removeBlob = myZoo.removeAnimal(blobFish);
         System.out.println("\n\ndid i remove the blob? " + removeBlob);
-        //System.out.println(myZoo.removeAnimal(blobFish));
 
         boolean removeLion = myZoo.removeAnimal(lion);
-
         System.out.println("\n\ndid i remove the Lion? " + removeLion);
 
         boolean removeHorse = myZoo.removeAnimal(horse);
-        System.out.println("\n\ndid i remove the Horse? " + removeHorse);
+        System.out.println("\n\ndid i remove the Horse? " + removeHorse + "\n\n");
 
-        //myZoo.showAnimals();
+        //The final result
+        System.out.println(myZoo);
     }
 }

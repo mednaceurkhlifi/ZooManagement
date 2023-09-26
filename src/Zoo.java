@@ -21,9 +21,9 @@ public class Zoo {
 
     @Override
     public String toString(){
-        String str = "";
+        StringBuilder str = new StringBuilder();
         for(int i=0; i <count;i++) {
-            str += animals[i].toString();
+            str.append(animals[i].toString());
         }
 
         return name + "\n" + city + "\n" + nbrCages + "\n" + str;
@@ -61,28 +61,14 @@ public class Zoo {
 
         return false;
     }
-/*    void showAnimals(){
-        for(int i=0; i <count;i++) {
 
-        }
-    }*/
 
-/*    int searchAnimal(Animal animal) {
 
-        // Basic search (shows the first occ)
-        for(int i=0; i<count; i++) {
-            if (animals[i] == animal) {
-                return i;
-            }
-        }
-        return -1;
-
-    }*/
-
+    //Basic Search (shows the first occ)
     int searchAnimal(Animal animal) {
 
         for (int i = 0; i < count; i++) {
-            if (animal.name == animals[i].name)
+            if (animal.name.equals(animals[i].name))
                 return i;
         }
         return -1;
@@ -91,7 +77,7 @@ public class Zoo {
     int searchSecond(Animal animal) {
         int i=0;
 
-        while (i<count && animals[i].name != animal.name )
+        while (i<count && !animals[i].name.equals(animal.name))
         {
             i++;
         }
