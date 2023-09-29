@@ -93,7 +93,7 @@ public class Zoo {
     }
 
 
-    //comment 1
+    //comment 2
     boolean removeAnimal(Animal animal) {
 
         int index = searchAnimal(animal);
