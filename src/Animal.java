@@ -8,7 +8,7 @@ public class Animal {
             isMammal) {
         this.family = family;
         this.name = name;
-        this.age = age;
+        if (age > 0) this.age = age;
         this.isMammal = isMammal;
     }
 
