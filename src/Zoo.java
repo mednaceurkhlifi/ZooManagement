@@ -106,10 +106,11 @@ public class Zoo {
 
         int index = searchAnimal(animal);
         System.out.println("\nRemoving Animal Number: " + index);
+        if (index == 24) {
+            animals[24]=null;
+            return true;
+        }
         if (index != -1) {
-
-            if (index == 24) animals[24]=null;
-
             for (int i = index; i < count - 1; i++) {
                 animals[i] = animals[i + 1];
             }
