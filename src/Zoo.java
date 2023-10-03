@@ -1,8 +1,7 @@
 public class Zoo {
     Animal[] animals;
-    String name;
+    private String name;
     String city;
-    //final int nbrCages = 25;
     int count;
     final int NBR_MAX_CAGES =25;
 
@@ -13,6 +12,17 @@ public class Zoo {
         this.name = name;
         this.city = city;
         //this.nbrCages = nbrCages; // Instruction 14 (prosit3) made this unnecessary
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (!name.isEmpty()) {
+            this.name = name;
+        }
     }
 
     void displayZoo(){
@@ -41,7 +51,7 @@ public class Zoo {
             if (animals[i] == null)
             {
 
-                if (count >= NBR_MAX_CAGES) {
+                if (isZooFull()) {
                     System.out.println("No more Cages :')");
                 }
                 else {
@@ -69,7 +79,7 @@ public class Zoo {
     //Basic Search (finds the first occ)
     int searchAnimal(Animal animal) {
         for (int i = 0; i < count; i++) {
-            if (animal.name.equals(animals[i].name))
+            if (animal.getName().equals(animals[i].getName()))
                 return i;
         }
         return -1;
@@ -80,7 +90,7 @@ public class Zoo {
     int searchSecond(Animal animal) {
         int i=0;
 
-        while (i<count && !animals[i].name.equals(animal.name))
+        while (i<count && !animals[i].getName().equals(animal.getName()))
         {
             i++;
         }
@@ -92,13 +102,13 @@ public class Zoo {
 
     }
 
-
-    //comment 2
     boolean removeAnimal(Animal animal) {
 
         int index = searchAnimal(animal);
         System.out.println("\nRemoving Animal Number: " + index);
         if (index != -1) {
+
+            if (index == 24) animals[24]=null;
 
             for (int i = index; i < count - 1; i++) {
                 animals[i] = animals[i + 1];
@@ -108,6 +118,7 @@ public class Zoo {
             System.out.println("Animal is free");
             return true;
         }
+
         return false;
 
     }
@@ -117,9 +128,6 @@ public class Zoo {
     }
 
     Zoo CompareZoo(Zoo z1, Zoo z2) {
-        if (z1.count > z2.count) {
-            return z1;
-        }
-        return z2;
+        return (z1.count > z2.count) ? z1 : z2;
     }
 }
