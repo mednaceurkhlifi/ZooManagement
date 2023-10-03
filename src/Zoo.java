@@ -9,7 +9,7 @@ public class Zoo {
     //Had to remove the nbrCages from constructor (constant)
     public Zoo(String name, String city) {
         animals = new Animal[NBR_MAX_CAGES];
-        this.name = name;
+        if (!name.isEmpty()) this.name = name;
         this.city = city;
         //this.nbrCages = nbrCages; // Instruction 14 (prosit3) made this unnecessary
     }
