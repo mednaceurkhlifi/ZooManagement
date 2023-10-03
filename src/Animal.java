@@ -8,7 +8,7 @@ public class Animal {
             isMammal) {
         this.family = family;
         this.name = name;
-        if (age > 0) this.age = age;
+        if (age > 0) this.age = age; else this.age = 0;
         this.isMammal = isMammal;
     }
 
@@ -23,6 +23,9 @@ public class Animal {
     public void setAge(int age){
         if (age>0) {
             this.age = age;
+        }
+        else {
+            this.age = 0;
         }
     }
 
