@@ -1,3 +1,5 @@
+package tn.esprit.gestionzoo.entities;
+
 public class Zoo {
     Animal[] animals;
     private String name;
@@ -25,7 +27,7 @@ public class Zoo {
         }
     }
 
-    void displayZoo(){
+    public void displayZoo(){
         System.out.println(name);
         System.out.println(city);
         System.out.println(NBR_MAX_CAGES);
@@ -41,10 +43,10 @@ public class Zoo {
         return name + "\n" + city + "\n" + NBR_MAX_CAGES + "\n" + str;
     }
 
-    boolean addAnimal(Animal animal) {
+    public boolean addAnimal(Animal animal) {
         int test = searchSecond(animal);
 
-        System.out.println("Animal Number: " + test);
+        System.out.println("tn.esprit.gestionzoo.entities.Animal Number: " + test);
 
         for (int i=0; i < animals.length; i++) {
 
@@ -62,7 +64,7 @@ public class Zoo {
                     }
                     else
                     {
-                        System.out.println("Animal already exists in Animals");
+                        System.out.println("tn.esprit.gestionzoo.entities.Animal already exists in Animals");
                         break;
                     }
 
@@ -77,7 +79,7 @@ public class Zoo {
 
 
     //Basic Search (finds the first occ)
-    int searchAnimal(Animal animal) {
+    public int searchAnimal(Animal animal) {
         for (int i = 0; i < count; i++) {
             if (animal.getName().equals(animals[i].getName()))
                 return i;
@@ -87,7 +89,7 @@ public class Zoo {
 
 
     //finds the last occ
-    int searchSecond(Animal animal) {
+    public int searchSecond(Animal animal) {
         int i=0;
 
         while (i<count && !animals[i].getName().equals(animal.getName()))
@@ -102,10 +104,10 @@ public class Zoo {
 
     }
 
-    boolean removeAnimal(Animal animal) {
+    public boolean removeAnimal(Animal animal) {
 
         int index = searchAnimal(animal);
-        System.out.println("\nRemoving Animal Number: " + index);
+        System.out.println("\nRemoving tn.esprit.gestionzoo.entities.Animal Number: " + index);
         if (index == 24) {
             animals[24]=null;
             return true;
@@ -116,7 +118,7 @@ public class Zoo {
             }
             animals[count - 1] = null;
             count--;
-            System.out.println("Animal is free");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal is free");
             return true;
         }
 
@@ -124,11 +126,11 @@ public class Zoo {
 
     }
 
-    boolean isZooFull() {
+    public boolean isZooFull() {
         return count >= NBR_MAX_CAGES;
     }
 
-    Zoo CompareZoo(Zoo z1, Zoo z2) {
+    public Zoo CompareZoo(Zoo z1, Zoo z2) {
         return (z1.count > z2.count) ? z1 : z2;
     }
 }

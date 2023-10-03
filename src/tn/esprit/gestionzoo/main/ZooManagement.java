@@ -1,3 +1,8 @@
+package tn.esprit.gestionzoo.main;
+
+import tn.esprit.gestionzoo.entities.Zoo;
+import tn.esprit.gestionzoo.entities.Animal;
+
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -22,7 +27,7 @@ public class ZooManagement {
         int nbrCages1;
 
         do {
-            System.out.println("Zoo Name? ");
+            System.out.println("tn.esprit.gestionzoo.entities.Zoo Name? ");
             zooName1 = sc.nextLine();
         } while (zooName1.length()<3);
 
@@ -39,17 +44,17 @@ public class ZooManagement {
 
         // PART III
 
-        //Instantiating Animal Objects
+        //Instantiating tn.esprit.gestionzoo.entities.Animal Objects
         Animal lion = new Animal("lions", "simba", 10, true);
         Animal giraffe = new Animal("GirFam", "gif", 12, true);
         Animal blobFish = new Animal("Fish", "blobby", 1, false);
         Animal ant = new Animal("Colony", "antisysteme", 3, false);
         Animal horse = new Animal("Horsingaround", "BojackHorseman", 50, true);
 
-        //Instantiating a Zoo
-        Zoo myZoo = new Zoo("Zoo", "somewhere");
+        //Instantiating a tn.esprit.gestionzoo.entities.Zoo
+        Zoo myZoo = new Zoo("tn.esprit.gestionzoo.entities.Zoo", "somewhere");
 
-        //Instantiating a different Zoo
+        //Instantiating a different tn.esprit.gestionzoo.entities.Zoo
         Zoo myVoodooZoo = new Zoo("VoodooZoo", "somewhere");
 
         //Testing the displayZoo()
