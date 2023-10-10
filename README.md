@@ -1,3 +1,3 @@
-# tn.esprit.gestionzoo.main.ZooManagement
+# ZooManagement 
 
-A java program to manage a tn.esprit.gestionzoo.entities.Zoo. 
+A simple java program to manage a Zoo. 
