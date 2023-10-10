@@ -1,7 +1,6 @@
 package tn.esprit.gestionzoo.main;
 
-import tn.esprit.gestionzoo.entities.Zoo;
-import tn.esprit.gestionzoo.entities.Animal;
+import tn.esprit.gestionzoo.entities.*;
 
 import java.util.Scanner;
 
@@ -102,5 +101,24 @@ public class ZooManagement {
 
         //Testing the CompareZoo()
         System.out.println(myZoo.CompareZoo(myZoo, myVoodooZoo));
+
+
+
+        //Instanciating Aquatic Class and its kids
+        Aquatic ack = new Aquatic("acua", "ack", 11, false,"Depth");
+        Penguin ping = new Penguin("peng", "ping",12,true,"igloo", 12);
+        Dolphin dolph = new Dolphin("Dolphies", "Dolphy",12,true,"titanic", 12);
+
+
+        //Displaying the Children Classes
+        System.out.println(dolph);
+        System.out.println(ping);
+
+        //Instruction 24
+        ack.swim();
+        ping.swim();
+        dolph.swim(); //redefinition
+
+
     }
 }
