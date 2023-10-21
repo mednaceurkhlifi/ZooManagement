@@ -30,5 +30,8 @@ public class Penguin extends Aquatic{
                 + this.habitat + "\n" + swimmingDepth;
     }
 
-
+    @Override
+    public void swim() {
+        System.out.println("This Penguin is swimming.");
+    }
 }

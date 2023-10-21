@@ -6,11 +6,14 @@ public class Zoo {
     String city;
     int count;
     final int NBR_MAX_CAGES =25;
-
+    final int AQUATIC_ANIMALS = 10;
+    Animal[] aquaticAnimals;
+    int aquaticCount = 0;
 
     //Had to remove the nbrCages from constructor (constant)
     public Zoo(String name, String city) {
         animals = new Animal[NBR_MAX_CAGES];
+        aquaticAnimals = new Aquatic[AQUATIC_ANIMALS];
         if (!name.isEmpty()) this.name = name;
         this.city = city;
         //this.nbrCages = nbrCages; // Instruction 14 (prosit3) made this unnecessary
@@ -46,33 +49,26 @@ public class Zoo {
     public boolean addAnimal(Animal animal) {
         int test = searchSecond(animal);
 
-        System.out.println("tn.esprit.gestionzoo.entities.Animal Number: " + test);
+        System.out.println("Animal Number: " + test);
 
         for (int i=0; i < animals.length; i++) {
-
-            if (animals[i] == null)
-            {
-
+            if (animals[i] == null){
                 if (isZooFull()) {
                     System.out.println("No more Cages :')");
                 }
                 else {
                     if (test != -1) {
-                    animals[count] = animal;
-                    count++;
-                    return true;
+                        animals[count] = animal;
+                        count++;
+                        return true;
                     }
-                    else
-                    {
-                        System.out.println("tn.esprit.gestionzoo.entities.Animal already exists in Animals");
+                    else{
+                        System.out.println("Animal already exists in Animals");
                         break;
                     }
-
                 }
-
             }
         }
-
         return false;
     }
 
@@ -107,7 +103,7 @@ public class Zoo {
     public boolean removeAnimal(Animal animal) {
 
         int index = searchAnimal(animal);
-        System.out.println("\nRemoving tn.esprit.gestionzoo.entities.Animal Number: " + index);
+        System.out.println("\nRemoving Animal Number: " + index);
         if (index == 24) {
             animals[24]=null;
             return true;
@@ -118,10 +114,9 @@ public class Zoo {
             }
             animals[count - 1] = null;
             count--;
-            System.out.println("tn.esprit.gestionzoo.entities.Animal is free");
+            System.out.println("Animal is free");
             return true;
         }
-
         return false;
 
     }
@@ -133,4 +128,52 @@ public class Zoo {
     public Zoo CompareZoo(Zoo z1, Zoo z2) {
         return (z1.count > z2.count) ? z1 : z2;
     }
+
+    public boolean isAquaticFull() {
+        return aquaticCount >= AQUATIC_ANIMALS;
+    }
+
+    public void addAquaticAnimal(Aquatic aquatic) {
+        for (int i = 0; i < aquaticAnimals.length; i++) {
+            if (aquaticAnimals[i] != null) {
+                i++;
+            }
+            if (isAquaticFull()) {
+                System.out.println("Aquatic is Full :'(");
+                break;
+            }
+            aquaticAnimals[aquaticCount] = aquatic;
+            aquaticCount++;
+            System.out.println("Added aquatic Animal");
+            // if you don't return here it will continue to add aquatic to every column of aquaticAnimals
+            // or we can implement this method with a return type (boolean for example)
+            return;
+        }
+    }
+
+    public float maxPenguinSwimmingDepth(){
+        float max = 0;
+        for (Animal animal : aquaticAnimals){
+            if (animal instanceof Penguin &&
+                    max < ((Penguin) animal).getSwimmingDepth()){
+                    max = ((Penguin) animal).getSwimmingDepth();
+            }
+        }
+        return max;
+    }
+
+    public void displayNumberOfAquaticByType(){
+        int dolphin = 0, penguin = 0;
+        for(Animal animal : aquaticAnimals) {
+            if (animal instanceof Penguin) {
+                penguin++;
+            }
+            if (animal instanceof Dolphin) {
+                dolphin++;
+            }
+        }
+        System.out.println("Number of penguins = " + penguin + "\n"
+        + "Number of Dolphins = " + dolphin + "\n" );
+    }
+
 }

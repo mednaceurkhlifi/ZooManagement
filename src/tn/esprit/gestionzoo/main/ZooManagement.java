@@ -11,7 +11,7 @@ public class ZooManagement {
     public static void main(String[] args) {
 
 
-
+        /*
         //Part I
 
         int nbrCages = 20;
@@ -26,7 +26,7 @@ public class ZooManagement {
         int nbrCages1;
 
         do {
-            System.out.println("tn.esprit.gestionzoo.entities.Zoo Name? ");
+            System.out.println("What is the Zoo Name? ");
             zooName1 = sc.nextLine();
         } while (zooName1.length()<3);
 
@@ -50,8 +50,8 @@ public class ZooManagement {
         Animal ant = new Animal("Colony", "antisysteme", 3, false);
         Animal horse = new Animal("Horsingaround", "BojackHorseman", 50, true);
 
-        //Instantiating a tn.esprit.gestionzoo.entities.Zoo
-        Zoo myZoo = new Zoo("tn.esprit.gestionzoo.entities.Zoo", "somewhere");
+        //Instantiating a Zoo
+        Zoo myZoo = new Zoo("Zoo", "somewhere");
 
         //Instantiating a different tn.esprit.gestionzoo.entities.Zoo
         Zoo myVoodooZoo = new Zoo("VoodooZoo", "somewhere");
@@ -101,24 +101,52 @@ public class ZooManagement {
 
         //Testing the CompareZoo()
         System.out.println(myZoo.CompareZoo(myZoo, myVoodooZoo));
-
+*/
 
 
         //Instanciating Aquatic Class and its kids
-        Aquatic ack = new Aquatic("acua", "ack", 11, false,"Depth");
+        //Aquatic ack = new Aquatic("acua", "ack", 11, false,"Depth"); // made the aquatic class abstract
         Penguin ping = new Penguin("peng", "ping",12,true,"igloo", 12);
         Dolphin dolph = new Dolphin("Dolphies", "Dolphy",12,true,"titanic", 12);
 
+        Aquatic penguin = new Penguin("pinng", "ping",12,true,"igloo", 12);
+        Aquatic penguin1 = new Penguin("pinng1", "ping",12,true,"igloo", 24);
+        Aquatic penguin2 = new Penguin("pinng2", "ping",12,true,"igloo", 34);
+
+
+        Aquatic dolphin = new Dolphin("Dolphin", "Dolphin",1,true,"titanic", 12);
+        Aquatic dolphin1 = new Dolphin("Dolphin", "Dolphin",1,true,"titanic", 15);
 
         //Displaying the Children Classes
-        System.out.println(dolph);
-        System.out.println(ping);
+        //System.out.println((Animal)dolph);
+        //System.out.println((Animal)ping);
 
         //Instruction 24
-        ack.swim();
+        //ack.swim();
         ping.swim();
         dolph.swim(); //redefinition
 
+        System.out.println("\n");
 
+
+        penguin.swim();
+        dolphin.swim();
+
+        Zoo zooooo = new Zoo("Zooooooooooooo", "somewhere");
+
+        zooooo.addAquaticAnimal(dolph);
+        zooooo.addAquaticAnimal(ping);
+        zooooo.addAquaticAnimal(dolphin);
+        zooooo.addAquaticAnimal(dolphin1);
+        zooooo.addAquaticAnimal(penguin);
+        zooooo.addAquaticAnimal(penguin1);
+        zooooo.addAquaticAnimal(penguin2);
+
+        float x = zooooo.maxPenguinSwimmingDepth();
+        System.out.println(x);
+        zooooo.displayNumberOfAquaticByType();
+        System.out.println( "is dolphin equal to dolphin1: " + dolphin.equals(dolphin, dolphin1));
+        System.out.println( "is dolphin equal to ping: " + dolphin.equals(dolphin, ping));
+        System.out.println( "is dolphin equal to ping: " + dolphin.equals(penguin1, penguin2));
     }
 }
