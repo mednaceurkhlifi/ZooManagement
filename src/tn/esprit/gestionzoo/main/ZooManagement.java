@@ -11,7 +11,7 @@ public class ZooManagement {
     public static void main(String[] args) {
 
 
-        /*
+
         //Part I
 
         int nbrCages = 20;
@@ -43,7 +43,7 @@ public class ZooManagement {
 
         // PART III
 
-        //Instantiating tn.esprit.gestionzoo.entities.Animal Objects
+        //Instantiating Animal Objects
         Animal lion = new Animal("lions", "simba", 10, true);
         Animal giraffe = new Animal("GirFam", "gif", 12, true);
         Animal blobFish = new Animal("Fish", "blobby", 1, false);
@@ -53,7 +53,7 @@ public class ZooManagement {
         //Instantiating a Zoo
         Zoo myZoo = new Zoo("Zoo", "somewhere");
 
-        //Instantiating a different tn.esprit.gestionzoo.entities.Zoo
+        //Instantiating a different Zoo
         Zoo myVoodooZoo = new Zoo("VoodooZoo", "somewhere");
 
         //Testing the displayZoo()
@@ -70,7 +70,8 @@ public class ZooManagement {
         System.out.println("Did I add the Giraffe? " + myZoo.addAnimal(giraffe));
         System.out.println("Did I add the Ant? " + myZoo.addAnimal(ant));
         System.out.println("Did I add the Horse? " + myZoo.addAnimal(horse));
-        System.out.println("Did I add the Horse? " + myVoodooZoo.addAnimal(horse));
+        System.out.println("Did I add the Horse again? " + myZoo.addAnimal(horse));
+        System.out.println("Did I add the Horse To my other zoo? " + myVoodooZoo.addAnimal(horse));
 
 
         //Testing searchAnimal()
@@ -101,10 +102,11 @@ public class ZooManagement {
 
         //Testing the CompareZoo()
         System.out.println(myZoo.CompareZoo(myZoo, myVoodooZoo));
-*/
 
 
-        //Instanciating Aquatic Class and its kids
+        // Part V && VI
+
+        //Instantiating Aquatic Class and its kids
         //Aquatic ack = new Aquatic("acua", "ack", 11, false,"Depth"); // made the aquatic class abstract
         Penguin ping = new Penguin("peng", "ping",12,true,"igloo", 12);
         Dolphin dolph = new Dolphin("Dolphies", "Dolphy",12,true,"titanic", 12);
@@ -117,7 +119,7 @@ public class ZooManagement {
         Aquatic dolphin = new Dolphin("Dolphin", "Dolphin",1,true,"titanic", 12);
         Aquatic dolphin1 = new Dolphin("Dolphin", "Dolphin",1,true,"titanic", 15);
 
-        //Displaying the Children Classes
+        // Displaying the Children Classes
         //System.out.println((Animal)dolph);
         //System.out.println((Animal)ping);
 
