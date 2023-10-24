@@ -47,24 +47,17 @@ public class Zoo {
     }
 
     public boolean addAnimal(Animal animal) {
-        for (int i = 0; i < animals.length; i++)
-        {
-            if (animals[i] != null){
-              i++;
-            }
-            if (isZooFull()) {
-                System.out.println("No more Cages :')");
-                break;
-            }
-            if (searchSecond(animal) == -1) {
-                System.out.println("Animal already exists in Animals");
-                break;
-            }
-            animals[count] = animal;
-            count++;
-            return true;
+        if (isZooFull()) {
+            System.out.println("No more Cages :')");
+            return false;
         }
-        return false;
+        if (searchSecond(animal) == -1) {
+            System.out.println("Animal already exists in Animals");
+            return false;
+        }
+        animals[count] = animal;
+        count++;
+        return true;
     }
 
 
@@ -123,25 +116,18 @@ public class Zoo {
     }
 
     public void addAquaticAnimal(Aquatic aquatic) {
-        for (int i = 0; i < aquaticAnimals.length; i++) {
-            if (aquaticAnimals[i] != null) {
-                i++;
-            }
-            if (isAquaticFull()) {
-                System.out.println("Aquatic is Full :'(");
-                break;
-            }
-            aquaticAnimals[aquaticCount] = aquatic;
-            aquaticCount++;
-            // Testing if adding works as intended or not
-            if (aquatic instanceof Penguin)
-                System.out.println("Added a Penguin to Aquatic Animals");
-            if (aquatic instanceof Dolphin)
-                System.out.println("Added a Dolphin to Aquatic Animals");
-            // if you don't return here it will continue to add aquatic to every column of aquaticAnimals
-            // Or we can implement this method with a return type (boolean for example)
+        if (isAquaticFull()) {
+            System.out.println("Aquatic is Full :'(");
             return;
         }
+        aquaticAnimals[aquaticCount] = aquatic;
+        aquaticCount++;
+
+        // Testing if adding works as intended or not
+        if (aquatic instanceof Penguin)
+            System.out.println("Added a Penguin to Aquatic Animals");
+        if (aquatic instanceof Dolphin)
+            System.out.println("Added a Dolphin to Aquatic Animals");
     }
 
     public float maxPenguinSwimmingDepth(){
