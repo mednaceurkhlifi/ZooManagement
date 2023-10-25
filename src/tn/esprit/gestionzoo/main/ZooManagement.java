@@ -4,15 +4,11 @@ import tn.esprit.gestionzoo.entities.*;
 
 import java.util.Scanner;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class ZooManagement {
 
     public static void main(String[] args) {
 
-
-
-        //Part I
+        /*//Part I
 
         int nbrCages = 20;
         String zooName = "my zoo";
@@ -37,7 +33,7 @@ public class ZooManagement {
         } while (nbrCages1 < 3 || nbrCages1>20);
 
         System.out.println(zooName1 + " has " + nbrCages1 + " cages");
-
+*/
 
 
 
@@ -64,6 +60,7 @@ public class ZooManagement {
         // we have to override the "toString" method to make the Sout to print the class attributes
 
         //Testing the addAnimal()
+        /*
         System.out.println("Did I add the Blob? " + myZoo.addAnimal(blobFish));
         System.out.println("Did I add the Blob? " + myZoo.addAnimal(blobFish));
         System.out.println("Did I add the Lion? " + myZoo.addAnimal(lion));
@@ -72,6 +69,50 @@ public class ZooManagement {
         System.out.println("Did I add the Horse? " + myZoo.addAnimal(horse));
         System.out.println("Did I add the Horse again? " + myZoo.addAnimal(horse));
         System.out.println("Did I add the Horse To my other zoo? " + myVoodooZoo.addAnimal(horse));
+        */
+
+        try {
+            myZoo.addAnimal(blobFish);
+        }
+        catch (ZooFullException exception)
+        {
+            System.out.println("Zoo is Full");
+        }
+        finally {
+            System.out.println("Number of Animals in Zoo: " + myZoo.getCount());
+        }
+
+        try {
+            myZoo.addAnimal(lion);
+        }
+        catch (ZooFullException exception)
+        {
+            System.out.println("Zoo is Full");
+        }
+        finally {
+            System.out.println("Number of Animals in Zoo: " + myZoo.getCount());
+        }
+
+        try {
+            myZoo.addAnimal(giraffe);
+        }
+        catch (ZooFullException exception)
+        {
+            System.out.println("Zoo is Full");
+        }
+        finally {
+            System.out.println("Number of Animals in Zoo: " + myZoo.getCount());
+        }
+        try {
+            myZoo.addAnimal(ant);
+        }
+        catch (ZooFullException exception)
+        {
+            System.out.println("Zoo is Full");
+        }
+        finally {
+            System.out.println("Number of Animals in Zoo: " + myZoo.getCount());
+        }
 
 
         //Testing searchAnimal()

@@ -4,8 +4,8 @@ public class Zoo {
     Animal[] animals;
     private String name;
     String city;
-    int count;
-    final int NBR_MAX_CAGES =25;
+    private int count;
+    final int NBR_MAX_CAGES =3;
     final int AQUATIC_ANIMALS = 10;
     Animal[] aquaticAnimals;
     int aquaticCount = 0;
@@ -22,6 +22,10 @@ public class Zoo {
 
     public String getName() {
         return name;
+    }
+
+    public int getCount() {
+        return count;
     }
 
     public void setName(String name) {
@@ -46,18 +50,16 @@ public class Zoo {
         return name + "\n" + city + "\n" + NBR_MAX_CAGES + "\n" + str;
     }
 
-    public boolean addAnimal(Animal animal) {
+    public void addAnimal(Animal animal) throws ZooFullException{
         if (isZooFull()) {
-            System.out.println("No more Cages :')");
-            return false;
+            throw new ZooFullException("No more Cages :')");
         }
         if (searchSecond(animal) == -1) {
             System.out.println("Animal already exists in Animals");
-            return false;
+            return;
         }
         animals[count] = animal;
         count++;
-        return true;
     }
 
 
