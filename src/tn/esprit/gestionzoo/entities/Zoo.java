@@ -127,17 +127,11 @@ public class Zoo {
         }
         aquaticAnimals[aquaticCount] = aquatic;
         aquaticCount++;
-
-        // Testing if adding works as intended or not
-        if (aquatic instanceof Penguin)
-            System.out.println("Added a Penguin to Aquatic Animals");
-        if (aquatic instanceof Dolphin)
-            System.out.println("Added a Dolphin to Aquatic Animals");
     }
 
     public float maxPenguinSwimmingDepth(){
         float max = 0;
-        for(int i = 0; i < count ; i++){
+        for(int i = 0; i < aquaticCount ; i++){
             if (aquaticAnimals[i] instanceof Penguin &&
                     max < ((Penguin) aquaticAnimals[i]).getSwimmingDepth()){
                     max = ((Penguin) aquaticAnimals[i]).getSwimmingDepth();
@@ -148,7 +142,7 @@ public class Zoo {
 
     public void displayNumberOfAquaticByType(){
         int dolphin = 0, penguin = 0;
-        for(int i = 0; i < count ; i++) {
+        for(int i = 0; i < aquaticCount ; i++) {
             if (aquaticAnimals[i] instanceof Penguin) {
                 penguin++;
             }
