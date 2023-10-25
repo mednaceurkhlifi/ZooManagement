@@ -40,9 +40,9 @@ public class ZooManagement {
         // PART III
 
         //Instantiating Animal Objects
-        Animal lion = new Animal("lions", "simba", 10, true);
+        Animal lion = new Animal("lions", "simba", -10, true);
         Animal giraffe = new Animal("GirFam", "gif", 12, true);
-        Animal blobFish = new Animal("Fish", "blobby", 1, false);
+        Animal blobFish = new Animal("Fish", "blobby", -1, false);
         Animal ant = new Animal("Colony", "antisysteme", 3, false);
         Animal horse = new Animal("Horsingaround", "BojackHorseman", 50, true);
 
@@ -71,48 +71,11 @@ public class ZooManagement {
         System.out.println("Did I add the Horse To my other zoo? " + myVoodooZoo.addAnimal(horse));
         */
 
-        try {
-            myZoo.addAnimal(blobFish);
-        }
-        catch (ZooFullException exception)
-        {
-            System.out.println("Zoo is Full");
-        }
-        finally {
-            System.out.println("Number of Animals in Zoo: " + myZoo.getCount());
-        }
-
-        try {
-            myZoo.addAnimal(lion);
-        }
-        catch (ZooFullException exception)
-        {
-            System.out.println("Zoo is Full");
-        }
-        finally {
-            System.out.println("Number of Animals in Zoo: " + myZoo.getCount());
-        }
-
-        try {
-            myZoo.addAnimal(giraffe);
-        }
-        catch (ZooFullException exception)
-        {
-            System.out.println("Zoo is Full");
-        }
-        finally {
-            System.out.println("Number of Animals in Zoo: " + myZoo.getCount());
-        }
-        try {
-            myZoo.addAnimal(ant);
-        }
-        catch (ZooFullException exception)
-        {
-            System.out.println("Zoo is Full");
-        }
-        finally {
-            System.out.println("Number of Animals in Zoo: " + myZoo.getCount());
-        }
+        addAnimalToZoo(myZoo,blobFish);
+        addAnimalToZoo(myZoo,horse);
+        addAnimalToZoo(myZoo,ant);
+        addAnimalToZoo(myZoo,giraffe);
+        addAnimalToZoo(myZoo,lion);
 
 
         //Testing searchAnimal()
@@ -192,4 +155,21 @@ public class ZooManagement {
         System.out.println( "is dolphin equal to ping: " + dolphin.equals(dolphin, ping));
         System.out.println( "is dolphin equal to ping: " + dolphin.equals(penguin1, penguin2));
     }
+
+    public static void addAnimalToZoo(Zoo zoo, Animal animal) {
+        try {
+            zoo.addAnimal(animal);
+        }
+        catch (ZooFullException exception)
+        {
+            System.out.println("Zoo is Full");
+        }
+        catch (InvalidAgeException exception) {
+            System.out.println(animal.getFamily() + "'s Age is not Valid");
+        }
+        finally {
+            System.out.println("Number of Animals in Zoo: " + zoo.getCount());
+        }
+    }
+
 }

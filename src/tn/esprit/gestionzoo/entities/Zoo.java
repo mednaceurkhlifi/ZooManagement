@@ -50,9 +50,12 @@ public class Zoo {
         return name + "\n" + city + "\n" + NBR_MAX_CAGES + "\n" + str;
     }
 
-    public void addAnimal(Animal animal) throws ZooFullException{
+    public void addAnimal(Animal animal) throws ZooFullException, InvalidAgeException{
         if (isZooFull()) {
             throw new ZooFullException("No more Cages :')");
+        }
+        if(animal.getAge() < 0) {
+            throw new InvalidAgeException(animal.getName() + "'s age is negative");
         }
         if (searchSecond(animal) == -1) {
             System.out.println("Animal already exists in Animals");
@@ -134,10 +137,10 @@ public class Zoo {
 
     public float maxPenguinSwimmingDepth(){
         float max = 0;
-        for (Animal animal : aquaticAnimals){
-            if (animal instanceof Penguin &&
-                    max < ((Penguin) animal).getSwimmingDepth()){
-                    max = ((Penguin) animal).getSwimmingDepth();
+        for(int i = 0; i < count ; i++){
+            if (aquaticAnimals[i] instanceof Penguin &&
+                    max < ((Penguin) aquaticAnimals[i]).getSwimmingDepth()){
+                    max = ((Penguin) aquaticAnimals[i]).getSwimmingDepth();
             }
         }
         return max;
@@ -145,11 +148,11 @@ public class Zoo {
 
     public void displayNumberOfAquaticByType(){
         int dolphin = 0, penguin = 0;
-        for(Animal animal : aquaticAnimals) {
-            if (animal instanceof Penguin) {
+        for(int i = 0; i < count ; i++) {
+            if (aquaticAnimals[i] instanceof Penguin) {
                 penguin++;
             }
-            if (animal instanceof Dolphin) {
+            if (aquaticAnimals[i] instanceof Dolphin) {
                 dolphin++;
             }
         }
